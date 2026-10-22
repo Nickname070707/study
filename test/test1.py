@@ -1,4 +1,5 @@
 from openai import OpenAI
+import json
 
 class History:
     def __init__(self):
@@ -28,3 +29,6 @@ if __name__=="__main__":
         reply=completion.choices[0].message.content
         print(f"ai>{reply}")
         history.messages.append({"role":"assistant","content":reply})
+        messagesStr=json.dumps(history.messages)
+        with open("messages.json","w+") as msg:
+            msg.write(messagesStr)
