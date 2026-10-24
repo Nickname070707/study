@@ -13,7 +13,6 @@ class History:
         ]
 
     def load(self):
-        # """从文件读取历史（如果存在）"""
         if os.path.exists(self.file):
             with open(self.file,"r",encoding="utf-8") as f:
                 data=json.load(f)
@@ -22,12 +21,10 @@ class History:
         return self.messages
 
     def save(self):
-        # """把当前历史写入文件"""
         with open(self.file,"w",encoding="utf-8") as f:
             json.dump(self.messages,f,ensure_ascii=False,indent=2)
 
     def clear(self):
-        # """清空历史，只保留 system"""
         self.messages=self.messages[:1]
         self.save()
 
