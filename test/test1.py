@@ -36,7 +36,6 @@ class History:
 
 
 if __name__ == "__main__":
-    
     history=History()
     history.load()          # 启动时恢复上次的对话
 
